@@ -1,0 +1,18 @@
+Options -Indexes
+RewriteEngine On
+
+# Fix directory redirection on parked domains (HTTP).
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{HTTPS} off
+RewriteRule [^/]$ http://%{HTTP_HOST}%{REQUEST_URI}/ [R=301,L]
+
+# Fix directory redirection on parked domains (HTTPS).
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{HTTPS} on
+RewriteRule [^/]$ https://%{HTTP_HOST}%{REQUEST_URI}/ [R=301,L]
+
+# Redirect requests to the primary WWW domain.
+# This helps the cache server cache content for only one domain (both of them being duplicate)
+RewriteCond %{HTTP_HOST} ^www\.
+RewriteCond %{HTTP_HOST} \.(com|net|org|cc|biz)$
+RewriteRule (.*) http://developer.aycdemo.com%{REQUEST_URI} [R=301,L]

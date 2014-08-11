@@ -1,0 +1,7 @@
+http://developer.aycdemo.com/
+
+FTP LOGIN INFORMATION
+Server:	zeus.aycmedia.com
+Port:   2121
+User:	developer
+Pass:	devtest1

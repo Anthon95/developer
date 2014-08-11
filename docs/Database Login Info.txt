@@ -1,0 +1,5 @@
+User:		develop
+Pass:		v7yJ5I3Gzv8T
+Host:		localhost
+DB Name:	develop
+
