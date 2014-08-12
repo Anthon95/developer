@@ -3,9 +3,9 @@
 session_start();
 
 $config['DB']['server'] = "localhost";
-$config['DB']['username'] = "root";
-$config['DB']['password'] = "";
-$config['DB']['database'] = "aycmedia-test";
+$config['DB']['username'] = "develop";
+$config['DB']['password'] = "v7yJ5I3Gzv8T";
+$config['DB']['database'] = "develop";
 
 $link = mysqli_connect($config['DB']['server'],$config['DB']['username'],$config['DB']['password'],$config['DB']['database']);
 
