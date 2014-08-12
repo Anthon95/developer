@@ -1,3 +1,12 @@
+<?php
+
+    include("config.php");
+
+    $query = mysqli_query($link,"SELECT * FROM announcements ORDER BY datestamp DESC");
+    $result = mysqli_fetch_all($query);
+
+?>
+
 <!DOCTYPE html>
 <html>
  <head>
@@ -52,24 +61,17 @@
      <div id="specials_tag"><a href="specials.php"><img src="images/specials-tag.png" width="153" height="47" class="png" border="0" /></a></div>
      <div id="content_cont">
 <!-- BEGIN: Announcements -->
-      <div class="announcement">
-       <img src="/./images/announcements-thumb.jpg" alt="IVY IS NOW OPEN FOR LUNCH!" title="IVY IS NOW OPEN FOR LUNCH!" />
-       <div class="announcement_content">
-        <h2>IVY IS NOW OPEN FOR LUNCH!</h2>
-        <p>Ivy will now be serving our full menu from 11:30am until 12:00am Monday through Friday, and will be serving brunch on Saturday and Sunday from 11:30am-3pm</p>
-        <div class="clear"></div>
-       </div>
-      </div>
-      <br clear="all"/>
-      <br clear="all"/>
-      <div class="announcement">
-       <img src="/./images/announcements-thumb.jpg" alt="IVY IS NOW OPEN FOR LUNCH!" title="IVY IS NOW OPEN FOR LUNCH!" />
-       <div class="announcement_content">
-        <h2>IVY IS NOW OPEN FOR LUNCH!</h2>
-        <p>Ivy will now be serving our full menu from 11:30am until 12:00am Monday through Friday, and will be serving brunch on Saturday and Sunday from 11:30am-3pm</p>
-        <div class="clear"></div>
-       </div>
-      </div>
+      <?php foreach($result as $announcement){ ?>
+          <div class="announcement">
+           <div class="announcement_content">
+            <h2><?php echo $announcement['1'] ?></h2>
+            <p><?php echo $announcement['2'] ?></p>
+            <div class="clear"></div>
+           </div>
+          </div>
+          <br clear="all"/>
+      <?php } ?>
+
 <!-- END: Announcements -->
       <img src="images/ivy-logo-bar.jpg" width="509" height="26" class="logo_bar" />
      </div>
